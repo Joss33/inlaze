@@ -1,0 +1,79 @@
+<div class="w-full h-16 relative z-20 px-5 mb-4">
+  <div class="w-full h-full flex items-center">
+    <img src="assets/images/assets-wires/img/Group 2.png" class="block" width="160" height="24" alt="logo business"
+      routerLink="/home">
+    <div class="flex items-center ml-auto">
+      <button type="button" (click)="isOpenMessage = !isOpenMessage" cdkOverlayOrigin
+        #menuMessageOverlay="cdkOverlayOrigin"
+        class="flex justify-center items-center rounded-full w-10 h-10 mr-3 transition-all bg-transparent hover:bg-primary-inlaze text-white hover:text-gray-800"
+        aria-expanded="false" type="button">
+        <fa-icon [icon]="['fas', 'comment-dots']"></fa-icon>
+      </button>
+      <button type="button" (click)="isOpen = !isOpen" cdkOverlayOrigin #menuOverlay="cdkOverlayOrigin"
+        class="flex items-center justify-center rounded-full w-10 h-10 transition-all bg-transparent hover:bg-primary-inlaze text-white hover:text-gray-800 "
+        aria-expanded="false" type="button">
+        <fa-icon [icon]="['fas', 'bars']"></fa-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="menuOverlay" [cdkConnectedOverlayOpen]="isOpen"
+  (overlayOutsideClick)="isOpen = !isOpen">
+  <div class="z-50 my-4 w-72 text-base list-none bg-gray-50 rounded shadow">
+    <div class="py-3 px-4 flex justify-between">
+      <div class="text-xl font-bold">Daniel Amadeus</div>
+    </div>
+    <ul class="py-1">
+      <li>
+        <a routerLink="/admin/create-message"
+          class="block py-2 px-4 text-md font-medium text-gray-800 hover:bg-primary-inlaze dark:hover:bg-gray-600">
+          <fa-icon [icon]="['fas','pen-to-square']"></fa-icon> Create
+          Messages</a>
+      </li>
+      <li>
+        <a routerLink="/admin/my-messages"
+          class="block py-2 px-4 text-md font-medium text-gray-800 hover:bg-primary-inlaze dark:hover:bg-gray-600">
+          <fa-icon [icon]="['fas','paper-plane']"></fa-icon> My
+          Messages</a>
+      </li>
+      <li>
+        <a routerLink="/admin/all-messages"
+          class="block py-2 px-4 text-md font-medium text-gray-800 hover:bg-primary-inlaze dark:hover:bg-gray-600">
+          <fa-icon [icon]="['fas','comments']"></fa-icon> See
+          all
+          messages</a>
+      </li>
+      <li>
+        <a routerLink="/home"
+          class="block py-2 px-4 text-md font-medium text-gray-800 hover:bg-primary-inlaze dark:hover:bg-gray-600">
+          <fa-icon [icon]="['fas','right-from-bracket']"></fa-icon> Logout</a>
+      </li>
+    </ul>
+  </div>
+</ng-template>
+
+<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="menuMessageOverlay"
+  [cdkConnectedOverlayOpen]="isOpenMessage" (overlayOutsideClick)="isOpenMessage = !isOpenMessage">
+  <div class="z-50 my-4 w-72 text-base list-none bg-gray-50 rounded shadow">
+    <div class="py-3 px-4">
+      <div class="text-xl font-bold mb-4">recent posts</div>
+      <div class="flex flex-col">
+        <p class="text-lg font-bold">
+          Do you want to make a living by giving your sports preditions?
+        </p>
+        <p>
+          Join out afiliate marketing pro...
+        </p>
+        <hr class="my-4">
+        <p class="text-lg font-bold">
+          What is e-sports
+        </p>
+        <p>
+          You are in luck
+        </p>
+      </div>
+    </div>
+  </div>
+</ng-template>

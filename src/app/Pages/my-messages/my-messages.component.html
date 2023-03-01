@@ -1,0 +1,39 @@
+<div class="max-w-screen-2xl mx-auto px-5 pb-4">
+  <h1 class="font-bold text-4xl text-primary-inlaze mb-4">
+    My messages
+  </h1>
+
+  <form class="mb-4">
+    <div class="mb-3">
+      <label for="default-input"
+        class="block mb-2 text-sm font-medium text-primary-inlaze dark:text-primary-inlaze">Date select</label>
+      <input type="text" id="default-input" placeholder="00/00/0000"
+        class="bg-transparent border  text-white text-sm rounded-full focus:ring-0 focus:border-white block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-0 dark:focus:border-primarring-primary-inlaze">
+    </div>
+
+  </form>
+
+  <ng-container *ngFor="let message of listMessages">
+    <div class="bg-gray-200 rounded-lg p-4 mb-4">
+      <h1 class="text-xl text-gray-800 font-bold mb-2">{{message.title}}</h1>
+      <p class="text-gray-800 text-sm mb-5">
+        {{message.messages}}
+      </p>
+
+      <div class="flex items-center">
+        <p class="italic text-gray-600 text-xs">
+          <small>{{message.time | date:'medium'}}</small>
+        </p>
+        <p class="text-xl ml-auto text-gray-800 font-bold">
+          {{message.name}}
+        </p>
+
+      </div>
+
+    </div>
+
+  </ng-container>
+
+
+
+</div>
